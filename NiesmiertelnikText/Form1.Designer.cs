@@ -44,11 +44,12 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBox1.Location = new System.Drawing.Point(16, 51);
+            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
             this.richTextBox1.MaxLength = 1000;
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(365, 132);
+            this.richTextBox1.Size = new System.Drawing.Size(403, 155);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -81,7 +82,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Location = new System.Drawing.Point(12, 158);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(265, 20);
             this.label2.TabIndex = 4;
@@ -102,22 +103,22 @@
             // radioButtonNiesmiertelnik
             // 
             this.radioButtonNiesmiertelnik.AutoSize = true;
-            this.radioButtonNiesmiertelnik.Checked = true;
-            this.radioButtonNiesmiertelnik.Location = new System.Drawing.Point(16, 200);
+            this.radioButtonNiesmiertelnik.Location = new System.Drawing.Point(16, 232);
             this.radioButtonNiesmiertelnik.Name = "radioButtonNiesmiertelnik";
             this.radioButtonNiesmiertelnik.Size = new System.Drawing.Size(151, 17);
             this.radioButtonNiesmiertelnik.TabIndex = 7;
-            this.radioButtonNiesmiertelnik.TabStop = true;
             this.radioButtonNiesmiertelnik.Text = "Nieśmiertelnik (15 znaków)";
             this.radioButtonNiesmiertelnik.UseVisualStyleBackColor = true;
             // 
             // radioButtonGrawer
             // 
             this.radioButtonGrawer.AutoSize = true;
-            this.radioButtonGrawer.Location = new System.Drawing.Point(16, 223);
+            this.radioButtonGrawer.Checked = true;
+            this.radioButtonGrawer.Location = new System.Drawing.Point(16, 200);
             this.radioButtonGrawer.Name = "radioButtonGrawer";
             this.radioButtonGrawer.Size = new System.Drawing.Size(120, 17);
             this.radioButtonGrawer.TabIndex = 8;
+            this.radioButtonGrawer.TabStop = true;
             this.radioButtonGrawer.Text = "Grawer (28 znaków)";
             this.radioButtonGrawer.UseVisualStyleBackColor = true;
             // 
@@ -144,7 +145,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox1);
-            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Nieśmiertelnik Tekst";
             this.ResumeLayout(false);

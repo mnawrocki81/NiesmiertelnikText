@@ -35,11 +35,11 @@ namespace NiesmiertelnikText
             if (radioButtonNiesmiertelnik.Checked)
             {
 
-               previusText = richTextBox1.Text;
-               richTextBox1.Text = ChangeText(richTextBox1.Text);
-               NiesmiertelnikCount();
-               CheckText();
-               
+                previusText = richTextBox1.Text;
+                richTextBox1.Text = ChangeText(richTextBox1.Text);
+                NiesmiertelnikCount();
+                CheckText();
+
             }
 
             if (radioButtonGrawer.Checked)
@@ -48,7 +48,7 @@ namespace NiesmiertelnikText
                 richTextBox1.Text = richTextBox1.Text;
                 GrawerCount();
                 CheckText();
-                
+
             }
         }
 
@@ -60,7 +60,7 @@ namespace NiesmiertelnikText
           { "Ą", "A" }, { "Ć", "C" }, { "Ę", "E" }, { "Ł", "L" }, { "Ń", "N" },
           { "Ó", "O" }, { "Ś", "S" }, { "Ź", "Z" }, { "Ż", "Z" }, { "Ü", "U" },
           { "Ä", "A" }, { "Ö", "O" } };
-          
+
             for (int i = 0; i < polishmarks.GetLength(0); i++)
             {
                 newtext = newtext.Replace(polishmarks[i, 0], polishmarks[i, 1]);
@@ -79,7 +79,7 @@ namespace NiesmiertelnikText
         {
 
         }
-        
+
         private void button3_Click(object sender, EventArgs e)
         {
             richTextBox1.Text = "";
@@ -87,9 +87,9 @@ namespace NiesmiertelnikText
         }
 
 
-        private void CheckText ()
+        private void CheckText()
         {
-            
+
             string signs = "";
             string letters = "";
 
@@ -101,7 +101,8 @@ namespace NiesmiertelnikText
                 signs = "!()?.,'@~ &*:/\"\n+-";
             }
             else
-            {   letters = "AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSTUVWXYZŻŹ";
+            {
+                letters = "AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSTUVWXYZŻŹ";
                 signs = "!()?.,'@~ &*:/\"\n+-%";
             }
 
@@ -109,7 +110,7 @@ namespace NiesmiertelnikText
 
             for (int i = 0; i < richTextBox1.Text.Length; i++)
             {
-               bool goodSign = false;
+                bool goodSign = false;
 
                 for (int j = 0; j < signs.Length; j++)
                 {
@@ -120,11 +121,11 @@ namespace NiesmiertelnikText
                     }
                 }
 
-                if (goodSign==false)
+                if (goodSign == false)
                 {
                     for (int j = 0; j < letters.Length; j++)
                     {
-                        if (string.Equals(richTextBox1.Text[i].ToString(),letters[j].ToString(), StringComparison.OrdinalIgnoreCase))
+                        if (string.Equals(richTextBox1.Text[i].ToString(), letters[j].ToString(), StringComparison.OrdinalIgnoreCase))
                         {
                             goodSign = true;
                             break;
@@ -147,17 +148,17 @@ namespace NiesmiertelnikText
                 if (goodSign == false)
                 {
                     badSign.Add(i);
-                    continue;
                 }
             }
 
-           if (badSign.Count>0)
-           MessageBox.Show("Tekst zawiera niedozwolne znaki! Popraw podświetlone i zaznaczone na czerwono znaki!");
+            if (badSign.Count > 0)
+                MessageBox.Show("Tekst zawiera niedozwolne znaki! Popraw podświetlone i zaznaczone na czerwono znaki!");
 
-           foreach (int sign in badSign)
+            foreach (int sign in badSign)
             {
                 richTextBox1.Select(sign, 1);
                 richTextBox1.SelectionColor = Color.Red;
+                richTextBox1.SelectionFont = new Font("Sans Serif", 12, FontStyle.Bold);
                 richTextBox1.SelectionBackColor = Color.White;
             }
         }
@@ -202,6 +203,6 @@ namespace NiesmiertelnikText
             richTextBox1.Text = previusText;
         }
 
-        
+
     }
 }
