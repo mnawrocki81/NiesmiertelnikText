@@ -31,31 +31,44 @@ namespace NiesmiertelnikText
         {
 
             label1.Text = "";
+            previusText = richTextBox1.Text;
+            TextTrimEnd();
 
             if (radioButtonNiesmiertelnik.Checked)
             {
-
-                previusText = richTextBox1.Text;
-                richTextBox1.Text = ChangeText(richTextBox1.Text);
                 NiesmiertelnikCount();
+                ChangeText();
                 CheckText();
-
             }
 
             if (radioButtonGrawer.Checked)
             {
-                previusText = richTextBox1.Text;
-                richTextBox1.Text = richTextBox1.Text;
                 GrawerCount();
+                richTextBox1.Text = richTextBox1.Text;
                 CheckText();
-
             }
         }
-
-
-        private string ChangeText(string text)
+        
+        private void TextTrimEnd()
         {
-            string newtext = text.ToUpper();
+            int count = richTextBox1.Lines.Count();
+            string tempRichTextBox1 = "";
+
+            for (int i=0; i<count; i++)
+            {
+                tempRichTextBox1 += richTextBox1.Lines[i].TrimEnd();
+
+                if (i != count - 1)
+                    tempRichTextBox1 += "\n";
+            }
+
+            richTextBox1.Text = tempRichTextBox1;
+
+        }
+     
+        private void ChangeText()
+        {
+            richTextBox1.Text = richTextBox1.Text.ToUpper();
             string[,] polishmarks = {
           { "Ą", "A" }, { "Ć", "C" }, { "Ę", "E" }, { "Ł", "L" }, { "Ń", "N" },
           { "Ó", "O" }, { "Ś", "S" }, { "Ź", "Z" }, { "Ż", "Z" }, { "Ü", "U" },
@@ -63,29 +76,9 @@ namespace NiesmiertelnikText
 
             for (int i = 0; i < polishmarks.GetLength(0); i++)
             {
-                newtext = newtext.Replace(polishmarks[i, 0], polishmarks[i, 1]);
+                richTextBox1.Text = richTextBox1.Text.Replace(polishmarks[i, 0], polishmarks[i, 1]);
             }
-
-            return newtext;
         }
-
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            richTextBox1.Text = "";
-            label1.Text = "";
-        }
-
 
         private void CheckText()
         {
@@ -166,14 +159,15 @@ namespace NiesmiertelnikText
         private void GrawerCount()
         {
             int count = richTextBox1.Lines.Count();
-
+           
             label1.Text = ($"W linii jest {richTextBox1.Lines[0].Length} znaków. ");
 
-            if (richTextBox1.Lines[0].Length > 28)
+           if (richTextBox1.Lines[0].Length > 28)
                 label1.Text += "ZA DUŻO ZNAKÓW!!!";
 
             if (count > 1)
                 label1.Text += ("\nDOZWOLONA MAX. 1 LINIA! POPRAW TEKST!");
+            
         }
 
         private void NiesmiertelnikCount()
@@ -186,6 +180,7 @@ namespace NiesmiertelnikText
                 {
                     label1.Text += ("DOZWOLONE MAX. 5 LINII! POPRAW TEKST!");
                     break;
+                  
                 }
 
                 label1.Text += ($"W {i + 1} linii jest {richTextBox1.Lines[i].Length} znaków. ");
@@ -196,12 +191,31 @@ namespace NiesmiertelnikText
                 label1.Text += ("\n");
 
             }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = "";
+            label1.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             richTextBox1.Text = previusText;
         }
+
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
 
     }
