@@ -181,7 +181,7 @@ namespace NiesmiertelnikText
                 label1.Text += ($"W {i + 1} linii jest {richTextBox1.Lines[i].Length} znaków. ");
 
                 if (richTextBox1.Lines[i].Length > numberOfCharacters)
-                    label1.Text += "ZA DUŻO ZNAKÓW!!!";
+                    label1.Text += $"ZA DUŻO ZNAKÓW O {richTextBox1.Lines[i].Length - numberOfCharacters} !!!";
 
                 label1.Text += ("\n");
                 
