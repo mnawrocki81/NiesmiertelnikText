@@ -18,8 +18,10 @@ namespace NiesmiertelnikText
         public Form1()
         {
             InitializeComponent();
+            comboBox1.SelectedIndex = 0;
         }
 
+        
         string previusText = "";
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,17 +35,29 @@ namespace NiesmiertelnikText
             label1.Text = "";
             previusText = richTextBox1.Text;
             TextTrimEnd();
+            string selectedItem = comboBox1.Items[comboBox1.SelectedIndex].ToString();
+            
 
             if (radioButtonNiesmiertelnik.Checked)
             {
-                NiesmiertelnikCount();
+                CountTheCharacters(5,15);
                 ChangeText();
                 CheckText();
             }
 
-            if (radioButtonGrawer.Checked)
+            if (radioButtonGrawer.Checked) 
             {
-                GrawerCount();
+
+                if (selectedItem.Contains("Charge (20 znaków)"))
+                    CountTheCharacters(1, 20);
+                else if (selectedItem.Contains("Sidekick | Wingman (25 znaków)"))
+                    CountTheCharacters(1, 25);
+                else if (selectedItem.Contains("Surge | Wave (28 znaków)"))
+                    CountTheCharacters(1, 28);
+                else if (selectedItem.Contains("Rev (30 znaków)"))
+                    CountTheCharacters(1, 30);
+
+
                 richTextBox1.Text = richTextBox1.Text;
                 CheckText();
             }
@@ -95,7 +109,7 @@ namespace NiesmiertelnikText
             }
             else
             {
-                letters = "AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSTUVWXYZŻŹ";
+                letters = "AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŻŹ";
                 signs = "!()?.,'@~ &*:/\"\n+-%";
             }
 
@@ -156,40 +170,24 @@ namespace NiesmiertelnikText
             }
         }
 
-        private void GrawerCount()
+
+        private void CountTheCharacters(int numberOfLines, int numberOfCharacters)
         {
-            int count = richTextBox1.Lines.Count();
-           
-            label1.Text = ($"W linii jest {richTextBox1.Lines[0].Length} znaków. ");
+            int countTheLines = richTextBox1.Lines.Count();
 
-           if (richTextBox1.Lines[0].Length > 28)
-                label1.Text += "ZA DUŻO ZNAKÓW!!!";
-
-            if (count > 1)
-                label1.Text += ("\nDOZWOLONA MAX. 1 LINIA! POPRAW TEKST!");
-            
-        }
-
-        private void NiesmiertelnikCount()
-        {
-            int count = richTextBox1.Lines.Count();
-
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < countTheLines; i++)
             {
-                if (i > 4)
-                {
-                    label1.Text += ("DOZWOLONE MAX. 5 LINII! POPRAW TEKST!");
-                    break;
-                  
-                }
 
                 label1.Text += ($"W {i + 1} linii jest {richTextBox1.Lines[i].Length} znaków. ");
 
-                if (richTextBox1.Lines[i].Length > 15)
+                if (richTextBox1.Lines[i].Length > numberOfCharacters)
                     label1.Text += "ZA DUŻO ZNAKÓW!!!";
 
                 label1.Text += ("\n");
-
+                
+                if (i == numberOfLines - 1 && countTheLines > numberOfLines)
+                    label1.Text += ($"DOZWOLONA MAX. ILOŚĆ LINII: {numberOfLines}! POPRAW TEKST!\n");
+                    
             }
 
         }
@@ -216,7 +214,14 @@ namespace NiesmiertelnikText
 
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
 
+        private void radioButtonGrawer_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

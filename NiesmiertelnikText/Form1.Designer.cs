@@ -39,6 +39,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(190, 200);
+            this.button1.Location = new System.Drawing.Point(220, 199);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 50);
             this.button1.TabIndex = 3;
@@ -69,7 +71,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(313, 200);
+            this.button3.Location = new System.Drawing.Point(343, 200);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(68, 49);
             this.button3.TabIndex = 6;
@@ -91,19 +93,20 @@
             // 
             this.radioButtonGrawer.AutoSize = true;
             this.radioButtonGrawer.Checked = true;
-            this.radioButtonGrawer.Location = new System.Drawing.Point(16, 200);
+            this.radioButtonGrawer.Location = new System.Drawing.Point(16, 179);
             this.radioButtonGrawer.Name = "radioButtonGrawer";
-            this.radioButtonGrawer.Size = new System.Drawing.Size(120, 17);
+            this.radioButtonGrawer.Size = new System.Drawing.Size(180, 17);
             this.radioButtonGrawer.TabIndex = 8;
             this.radioButtonGrawer.TabStop = true;
-            this.radioButtonGrawer.Text = "Grawer (28 znaków)";
+            this.radioButtonGrawer.Text = "Grawer (20 | 25 | 28 | 30 znaków)";
             this.radioButtonGrawer.UseVisualStyleBackColor = true;
+            this.radioButtonGrawer.CheckedChanged += new System.EventHandler(this.radioButtonGrawer_CheckedChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(16, 466);
+            this.button2.Location = new System.Drawing.Point(342, 495);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(60, 23);
             this.button2.TabIndex = 9;
             this.button2.Text = "Cofnij";
             this.button2.UseVisualStyleBackColor = true;
@@ -116,7 +119,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(403, 173);
+            this.groupBox1.Size = new System.Drawing.Size(414, 173);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Wpisz tekst nieśmiertelnika/graweru:";
@@ -128,15 +131,31 @@
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox1.Location = new System.Drawing.Point(3, 20);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(397, 153);
+            this.richTextBox1.Size = new System.Drawing.Size(408, 153);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "--Wybierz model z listy--",
+            "Charge (20 znaków)",
+            "Sidekick | Wingman (25 znaków)",
+            "Surge | Wave (28 znaków)",
+            "Rev (30 znaków)"});
+            this.comboBox1.Location = new System.Drawing.Point(25, 202);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(189, 21);
+            this.comboBox1.TabIndex = 11;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 501);
+            this.ClientSize = new System.Drawing.Size(414, 530);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.radioButtonGrawer);
@@ -163,6 +182,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
