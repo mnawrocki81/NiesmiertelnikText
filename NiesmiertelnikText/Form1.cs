@@ -32,7 +32,7 @@ namespace NiesmiertelnikText
         private void button1_Click(object sender, EventArgs e)
         {
 
-            label1.Text = "";
+            richTextBoxResult.Text = "";
             previusText = richTextBox1.Text;
             TextTrimEnd();
             string selectedItem = comboBox1.Items[comboBox1.SelectedIndex].ToString();
@@ -178,15 +178,15 @@ namespace NiesmiertelnikText
             for (int i = 0; i < countTheLines; i++)
             {
 
-                label1.Text += ($"W {i + 1} linii jest {richTextBox1.Lines[i].Length} znaków. ");
+                richTextBoxResult.Text += ($"W {i + 1} linii jest {richTextBox1.Lines[i].Length} znaków. ");
 
                 if (richTextBox1.Lines[i].Length > numberOfCharacters)
-                    label1.Text += $"ZA DUŻO ZNAKÓW O {richTextBox1.Lines[i].Length - numberOfCharacters} !!!";
+                    richTextBoxResult.Text += $"ZA DUŻO ZNAKÓW O {richTextBox1.Lines[i].Length - numberOfCharacters} !!!";
 
-                label1.Text += ("\n");
+                richTextBoxResult.Text += ("\n");
                 
                 if (i == numberOfLines - 1 && countTheLines > numberOfLines)
-                    label1.Text += ($"DOZWOLONA MAX. ILOŚĆ LINII: {numberOfLines}! POPRAW TEKST!\n");
+                    richTextBoxResult.Text += ($"DOZWOLONA MAX. ILOŚĆ LINII: {numberOfLines}! POPRAW TEKST!\n");
                     
             }
 
@@ -195,7 +195,7 @@ namespace NiesmiertelnikText
         private void button3_Click(object sender, EventArgs e)
         {
             richTextBox1.Text = "";
-            label1.Text = "";
+            richTextBoxResult.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)
