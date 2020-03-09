@@ -47,9 +47,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(220, 199);
+            this.button1.Location = new System.Drawing.Point(243, 181);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 50);
+            this.button1.Size = new System.Drawing.Size(152, 38);
             this.button1.TabIndex = 3;
             this.button1.Text = "Ile znaków?";
             this.toolTip2.SetToolTip(this.button1, "Przycisk oblicza ilośc znaków i sprawdza czy nie ma znaków niedozwolonych.\r\nW prz" +
@@ -60,9 +60,9 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(343, 200);
+            this.button3.Location = new System.Drawing.Point(243, 225);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(68, 49);
+            this.button3.Size = new System.Drawing.Size(68, 29);
             this.button3.TabIndex = 6;
             this.button3.Text = "Reset";
             this.button3.UseVisualStyleBackColor = true;
@@ -93,9 +93,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(342, 495);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button2.Location = new System.Drawing.Point(317, 225);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(60, 23);
+            this.button2.Size = new System.Drawing.Size(78, 29);
             this.button2.TabIndex = 9;
             this.button2.Text = "Cofnij";
             this.button2.UseVisualStyleBackColor = true;
@@ -108,7 +109,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(414, 173);
+            this.groupBox1.Size = new System.Drawing.Size(429, 173);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Wpisz tekst nieśmiertelnika/graweru:";
@@ -120,7 +121,7 @@
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox1.Location = new System.Drawing.Point(3, 20);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(408, 153);
+            this.richTextBox1.Size = new System.Drawing.Size(423, 153);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -155,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 530);
+            this.ClientSize = new System.Drawing.Size(429, 561);
             this.Controls.Add(this.richTextBoxResult);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox1);
